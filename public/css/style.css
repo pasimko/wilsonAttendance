@@ -1,0 +1,34 @@
+* {
+    background-color: #eeeeee;
+}
+label {
+    font-family: serif;
+    display: inline-block;
+    width:50%;
+    text-align: right;
+}
+.main {
+    margin: auto;
+    padding: 70px 0;
+    max-width: 500px;
+    vertical-align: middle;
+
+    border: 2px solid #2f343f;
+}
+input {
+    padding: 3px 4px 3px 4px;
+    border: 2px solid #2f343f;
+}
+input[type=submit]:hover {
+    background-color: #dddddd;
+}
+input[type=submit]:active {
+    background-color: #aaaaaa;
+    color: #eeeeee;
+}
+
+.content {
+    text-align: center;
+    margin: 15px;
+    padding: 0px 10px 5px 10px;
+}
