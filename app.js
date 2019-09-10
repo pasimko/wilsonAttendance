@@ -21,7 +21,6 @@ app.get('/public/thanks.html',function(req,res) {
 
 // Access the parse results as request.body
 app.post('/', function(request, response){
-    console.log("a");
     console.log(request.body.name);
     console.log(request.body.email);
     console.log(request.connection.remoteAddress);
