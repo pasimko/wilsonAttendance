@@ -26,13 +26,12 @@ app.get('/public/thanks.html',function(req,res) {
 app.post('/', function(request, response){
     console.log(request.body.name);
     console.log(request.body.email);
-    let ip = request.connection.remoteAddress;
-    console.log(ip);
-    
-    exec(`echo ${ip} | sed -r 's/[^0-9.]+//'`, (err, stdout, stderr) => {
-        if (err) {console.log("Error parsing IP");}
+    var ip = request.connection.remoteAddress;
+
+    exec(`(arping -c 1 -i eth0 $(echo ${ip} | sed -r 's/[^0-9.]+//')) | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'`, (err, stdout, stderr) => {
+        if (err) {console.log("Error parsing IP"+stderr);}
         else {
-            console.log(`stdout: ${stdout}`);
+	    console.log(stdout);
         }
     });
 
@@ -41,3 +40,4 @@ app.post('/', function(request, response){
 });
 
 app.listen(3000);
+
